@@ -23,381 +23,144 @@
         }
     </script>
     <style>
-        /* Estilos personalizados para inputs e textareas */
-        .input-field {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.375rem;
-            margin-top: 0.5rem;
-            transition: border-color 0.2s;
-        }
-        .input-field:focus {
-            outline: none;
-            border-color: #cf0e0e;
-            box-shadow: 0 0 0 2px rgba(207, 14, 14, 0.1);
-        }
-        .section-title {
-            color: #cf0e0e;
-            font-weight: 700;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #f3f4f6;
-            margin-top: 2.5rem;
-        }
-        .checkbox-label {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-            cursor: pointer;
-        }
-        .checkbox-input {
-            accent-color: #cf0e0e;
-            width: 1.25rem;
-            height: 1.25rem;
-        }
+        .input-field { width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 0.375rem; margin-top: 0.5rem; }
+        .input-field:focus { outline: none; border-color: #cf0e0e; box-shadow: 0 0 0 2px rgba(207, 14, 14, 0.1); }
+        .section-title { color: #cf0e0e; font-weight: 700; font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid #f3f4f6; margin-top: 2.5rem; }
+        .checkbox-label { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; cursor: pointer; }
+        .checkbox-input { accent-color: #cf0e0e; width: 1.25rem; height: 1.25rem; }
     </style>
 </head>
 <body class="bg-v4gray text-gray-800 font-sans">
 
-    <!-- Header -->
     <header class="bg-black text-white py-6 border-b-4 border-v4red shadow-lg">
         <div class="container mx-auto px-4 text-center">
             <h1 class="text-3xl font-bold uppercase tracking-wider">Briefing Pré Kick-off</h1>
-            <p class="text-gray-400 mt-2 text-sm">Preencha as informações abaixo para iniciarmos o projeto com excelência.</p>
+            <p class="text-gray-400 mt-2 text-sm">Preencha as informações para iniciarmos o projeto.</p>
         </div>
     </header>
 
     <main class="container mx-auto px-4 py-8 max-w-4xl">
-        
-        <!-- Formulário -->
-        <!-- target="_blank" adicionado para abrir em nova aba -->
-        <!-- _captcha removido para forçar verificação humana -->
-        <form action="https://formsubmit.co/ohebertgustavo@gmail.com" method="POST" enctype="multipart/form-data" target="_blank" class="bg-white p-8 rounded-lg shadow-xl">
+        <!-- Adicionei ID "v4Form" para o script encontrar -->
+        <form id="v4Form" action="https://formsubmit.co/ohebertgustavo@gmail.com" method="POST" enctype="multipart/form-data" target="_blank" class="bg-white p-8 rounded-lg shadow-xl">
             
-            <!-- Configurações Ocultas do FormSubmit -->
             <input type="hidden" name="_subject" value="Novo Briefing Pré Kick-off Recebido!">
             <input type="hidden" name="_template" value="table">
-            <!-- Captcha removido propositalmente para forçar verificação e envio do email -->
-            <!-- <input type="hidden" name="_next" value="https://v4company.com/"> Removido para você ver a mensagem de sucesso/ativação na tela deles -->
-
-            <!-- 1. DADOS GERAIS -->
-            <h2 class="section-title mt-0">1. Dados da Empresa e Cultura</h2>
+            
+            <h2 class="section-title mt-0">1. Dados da Empresa</h2>
             
             <div class="grid md:grid-cols-2 gap-6 mb-4">
-                <div>
-                    <label class="block font-semibold">Nome da Empresa: *</label>
-                    <input type="text" name="Nome_Empresa" required class="input-field" placeholder="Digite aqui...">
-                </div>
-                <div>
-                    <label class="block font-semibold">Site e Redes Sociais:</label>
-                    <input type="text" name="Site_Redes" class="input-field" placeholder="Instagram, Site, LinkedIn...">
-                </div>
+                <div><label class="block font-semibold">Nome da Empresa: *</label><input type="text" name="Nome_Empresa" id="Nome_Empresa" required class="input-field" placeholder="Digite aqui..."></div>
+                <div><label class="block font-semibold">Site e Redes Sociais:</label><input type="text" name="Site_Redes" id="Site_Redes" class="input-field"></div>
             </div>
-
-            <div class="mb-4">
-                <label class="block font-semibold">Principais envolvidos no projeto (Nome e Cargo): *</label>
-                <textarea name="Envolvidos" required rows="3" class="input-field" placeholder="Ex: João Silva - CEO, Maria - Marketing"></textarea>
-            </div>
-
-            <div class="mb-4">
-                <label class="block font-semibold">Histórico da Empresa:</label>
-                <p class="text-sm text-gray-500 mb-1">Cidades, filiais, estrutura, tempo de mercado, etc.</p>
-                <textarea name="Historico" rows="4" class="input-field"></textarea>
-            </div>
-
+            <div class="mb-4"><label class="block font-semibold">Principais envolvidos:</label><textarea name="Envolvidos" id="Envolvidos" rows="3" class="input-field"></textarea></div>
+            <div class="mb-4"><label class="block font-semibold">Histórico da Empresa:</label><textarea name="Historico" id="Historico" rows="4" class="input-field"></textarea></div>
             <div class="grid md:grid-cols-3 gap-4 mb-4">
-                <div>
-                    <label class="block font-semibold text-v4red">Missão</label>
-                    <textarea name="Missao" rows="3" class="input-field" placeholder="Razão de ser..."></textarea>
-                </div>
-                <div>
-                    <label class="block font-semibold text-v4red">Visão</label>
-                    <textarea name="Visao" rows="3" class="input-field" placeholder="Onde queremos estar..."></textarea>
-                </div>
-                <div>
-                    <label class="block font-semibold text-v4red">Valores</label>
-                    <textarea name="Valores" rows="3" class="input-field" placeholder="Princípios básicos..."></textarea>
-                </div>
+                <div><label class="block font-semibold text-v4red">Missão</label><textarea name="Missao" id="Missao" rows="3" class="input-field"></textarea></div>
+                <div><label class="block font-semibold text-v4red">Visão</label><textarea name="Visao" id="Visao" rows="3" class="input-field"></textarea></div>
+                <div><label class="block font-semibold text-v4red">Valores</label><textarea name="Valores" id="Valores" rows="3" class="input-field"></textarea></div>
             </div>
 
-            <!-- 2. MODELO DE NEGÓCIO E FINANCEIRO -->
-            <h2 class="section-title">2. Modelo de Negócio e Financeiro</h2>
-
-            <div class="mb-6">
-                <label class="block font-semibold mb-2">Qual o modelo de negócio?</label>
-                <div class="flex flex-wrap gap-4">
-                    <label class="checkbox-label"><input type="checkbox" name="Modelo[]" value="B2B" class="checkbox-input"> B2B</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Modelo[]" value="B2C" class="checkbox-input"> B2C</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Modelo[]" value="B2B2C" class="checkbox-input"> B2B2C</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Modelo[]" value="Franqueadora" class="checkbox-input"> Franqueadora</label>
-                </div>
-            </div>
-
-            <div class="mb-4">
-                <label class="block font-semibold">Faturamento anual detalhado mês a mês (Últimos 12 meses):</label>
-                <textarea name="Faturamento_Mes_a_Mes" rows="5" class="input-field" placeholder="Ex: Janeiro: 100k, Fevereiro: 120k..."></textarea>
-            </div>
-
+            <h2 class="section-title">2. Negócio e Financeiro</h2>
+            <div class="mb-4"><label class="block font-semibold">Modelo de Negócio:</label><input type="text" name="Modelo_Negocio" id="Modelo_Negocio" class="input-field" placeholder="B2B, B2C..."></div>
+            <div class="mb-4"><label class="block font-semibold">Faturamento (Mês a Mês):</label><textarea name="Faturamento_Mes_a_Mes" id="Faturamento_Mes_a_Mes" rows="4" class="input-field"></textarea></div>
             <div class="grid md:grid-cols-2 gap-6 mb-4">
-                <div>
-                    <label class="block font-semibold">Peculiaridades sazonais:</label>
-                    <input type="text" name="Sazonalidade" class="input-field">
-                </div>
-                <div>
-                    <label class="block font-semibold">Ticket Médio das vendas:</label>
-                    <input type="text" name="Ticket_Medio" class="input-field" placeholder="R$ 0,00">
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6 mb-4">
-                <div>
-                    <label class="block font-semibold">Média de transações/pedidos por mês:</label>
-                    <input type="text" name="Qtd_Transacoes_Mensais" class="input-field">
-                </div>
-                <div>
-                    <label class="block font-semibold">% Custo Variável (CMV/Impostos/Comissões):</label>
-                    <input type="text" name="Custo_Variavel_Percent" class="input-field" placeholder="%">
-                </div>
+                <div><label class="block font-semibold">Ticket Médio:</label><input type="text" name="Ticket_Medio" id="Ticket_Medio" class="input-field"></div>
+                <div><label class="block font-semibold">% Custo Variável:</label><input type="text" name="Custo_Variavel" id="Custo_Variavel" class="input-field"></div>
             </div>
             
-            <div class="mb-4">
-                <label class="block font-semibold">Recorrência de Compra (Quantas vezes o mesmo cliente compra por ano?):</label>
-                <input type="text" name="Recorrencia_Compra" class="input-field">
-            </div>
+            <h2 class="section-title">3. Cliente e Mercado</h2>
+            <div class="mb-4"><label class="block font-semibold">Mix de Produtos:</label><textarea name="Mix_Produtos" id="Mix_Produtos" rows="3" class="input-field"></textarea></div>
+            <div class="mb-4"><label class="block font-semibold">Público Alvo (Persona):</label><textarea name="Persona" id="Persona" rows="4" class="input-field"></textarea></div>
+            <div class="mb-4"><label class="block font-semibold">Grande Promessa:</label><textarea name="Promessa" id="Promessa" rows="2" class="input-field"></textarea></div>
+            <div class="mb-4"><label class="block font-semibold">Dores e Medos:</label><textarea name="Dores_Cliente" id="Dores_Cliente" rows="3" class="input-field"></textarea></div>
+            <div class="mb-4"><label class="block font-semibold">Concorrentes:</label><textarea name="Concorrentes" id="Concorrentes" rows="2" class="input-field"></textarea></div>
+            <div class="mb-4"><label class="block font-semibold">Objeções:</label><textarea name="Objecoes" id="Objecoes" rows="3" class="input-field"></textarea></div>
 
-            <div class="mb-4">
-                <label class="block font-semibold mb-2">Estratégia de Preço Atual:</label>
-                <select name="Estrategia_Preco" class="input-field">
-                    <option value="" disabled selected>Selecione...</option>
-                    <option value="Sobrevivencia">Preço mais baixo por sobrevivência</option>
-                    <option value="Penetracao">Preço mais baixo para Penetração de mercado</option>
-                    <option value="MarketShare">Preço mais baixo para maximização de market share</option>
-                    <option value="MargemLucro">Preço mais alto para maximização da margem de lucro</option>
-                    <option value="Qualidade">Preço mais alto para percepção de alta qualidade</option>
-                </select>
-            </div>
-
-            <!-- 3. PRODUTOS E CLIENTES -->
-            <h2 class="section-title">3. Produtos, Clientes e Mercado</h2>
-
-            <div class="mb-4">
-                <label class="block font-semibold">Quais produtos/serviços vende e % de representatividade:</label>
-                <textarea name="Mix_Produtos" rows="3" class="input-field"></textarea>
-            </div>
-
+            <h2 class="section-title">4. SWOT</h2>
             <div class="grid md:grid-cols-2 gap-6 mb-4">
-                <div>
-                    <label class="block font-semibold">% Faturamento (Novos vs Recorrentes):</label>
-                    <input type="text" name="Percent_Novos_vs_Antigos" class="input-field">
-                </div>
-                <div>
-                    <label class="block font-semibold">Tempo médio de negociação (Ciclo de Venda):</label>
-                    <input type="text" name="Ciclo_Venda" class="input-field">
-                </div>
+                <div class="bg-green-50 p-4 border border-green-200"><label class="block font-bold text-green-800">Forças</label><textarea name="SWOT_Forcas" id="SWOT_Forcas" rows="4" class="input-field"></textarea></div>
+                <div class="bg-red-50 p-4 border border-red-200"><label class="block font-bold text-red-800">Fraquezas</label><textarea name="SWOT_Fraquezas" id="SWOT_Fraquezas" rows="4" class="input-field"></textarea></div>
+                <div class="bg-blue-50 p-4 border border-blue-200"><label class="block font-bold text-blue-800">Oportunidades</label><textarea name="SWOT_Oportunidades" id="SWOT_Oportunidades" rows="4" class="input-field"></textarea></div>
+                <div class="bg-yellow-50 p-4 border border-yellow-200"><label class="block font-bold text-yellow-800">Ameaças</label><textarea name="SWOT_Ameacas" id="SWOT_Ameacas" rows="4" class="input-field"></textarea></div>
             </div>
 
-            <div class="mb-4">
-                <label class="block font-semibold">Região de atuação (% por região):</label>
-                <input type="text" name="Regiao_Atuacao" class="input-field">
-            </div>
-
-            <div class="mb-4">
-                <label class="block font-semibold">Perfil do Cliente Ideal (Persona):</label>
-                <p class="text-sm text-gray-500 mb-1">Cargo, Idade, Renda, Dores, Localização, etc.</p>
-                <textarea name="Persona" rows="4" class="input-field"></textarea>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6 mb-4">
-                <div>
-                    <label class="block font-semibold">Quem decide a compra?</label>
-                    <input type="text" name="Decisor" class="input-field">
-                </div>
-                <div>
-                    <label class="block font-semibold">Quem influencia a compra?</label>
-                    <input type="text" name="Influenciador" class="input-field">
-                </div>
-            </div>
-
-            <div class="mb-4">
-                <label class="block font-semibold mb-2">Nível de Consciência do Público:</label>
-                <div class="space-y-2">
-                    <label class="checkbox-label"><input type="radio" name="Nivel_Consciencia" value="Inconsciente" class="checkbox-input"> Inconsciente (Nem sabe que precisa)</label>
-                    <label class="checkbox-label"><input type="radio" name="Nivel_Consciencia" value="Consciente Problema" class="checkbox-input"> Consciente do Problema (Está incomodado)</label>
-                    <label class="checkbox-label"><input type="radio" name="Nivel_Consciencia" value="Consciente Solucao" class="checkbox-input"> Consciente da Solução (Sabe que tem como resolver)</label>
-                    <label class="checkbox-label"><input type="radio" name="Nivel_Consciencia" value="Consciente Produto" class="checkbox-input"> Consciente do Produto (Sabe como resolver, dúvida onde)</label>
-                    <label class="checkbox-label"><input type="radio" name="Nivel_Consciencia" value="Consciente Vendedor" class="checkbox-input"> Consciente do Vendedor (Sabe que você é a melhor opção)</label>
-                </div>
-            </div>
-
-            <!-- 4. DIFERENCIAIS E CONCORRÊNCIA -->
-            <h2 class="section-title">4. Diferenciais e Concorrência</h2>
-
-            <div class="mb-4">
-                <label class="block font-semibold">Grande promessa do produto (Benefício Final):</label>
-                <textarea name="Promessa" rows="2" class="input-field"></textarea>
-            </div>
-
-            <div class="mb-4">
-                <label class="block font-semibold">Maiores dores/medos que resolve:</label>
-                <textarea name="Dores_Cliente" rows="3" class="input-field"></textarea>
-            </div>
-
-            <div class="mb-4">
-                <label class="block font-semibold">Motivos para escolher você e não o concorrente:</label>
-                <textarea name="Diferenciais" rows="3" class="input-field"></textarea>
-            </div>
-
-            <div class="mb-4">
-                <label class="block font-semibold">Principais Concorrentes (Nomes e Sites):</label>
-                <textarea name="Concorrentes" rows="2" class="input-field"></textarea>
-            </div>
-
-            <div class="mb-4">
-                <label class="block font-semibold">Principais Objeções na hora da venda:</label>
-                <textarea name="Objecoes" rows="3" class="input-field"></textarea>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6 mb-4">
-                <div>
-                    <label class="block font-semibold">Fazem pesquisa de satisfação?</label>
-                    <select name="Faz_Pesquisa" class="input-field">
-                        <option value="Nao">Não</option>
-                        <option value="Sim">Sim</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block font-semibold">Nível de satisfação geral:</label>
-                    <select name="Nivel_Satisfacao" class="input-field">
-                        <option value="Muito Satisfeitos">Muito Satisfeitos</option>
-                        <option value="Satisfeitos">Satisfeitos</option>
-                        <option value="Pouco Satisfeitos">Pouco Satisfeitos</option>
-                        <option value="Insatisfeitos">Insatisfeitos</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- 5. ANÁLISE SWOT -->
-            <h2 class="section-title">5. Análise SWOT</h2>
-            <div class="grid md:grid-cols-2 gap-6 mb-4">
-                <div class="bg-green-50 p-4 rounded border border-green-200">
-                    <label class="block font-bold text-green-800">Forças (Interno)</label>
-                    <textarea name="SWOT_Forcas" rows="4" class="input-field bg-white" placeholder="O que a empresa faz bem?"></textarea>
-                </div>
-                <div class="bg-red-50 p-4 rounded border border-red-200">
-                    <label class="block font-bold text-red-800">Fraquezas (Interno)</label>
-                    <textarea name="SWOT_Fraquezas" rows="4" class="input-field bg-white" placeholder="O que precisa melhorar?"></textarea>
-                </div>
-                <div class="bg-blue-50 p-4 rounded border border-blue-200">
-                    <label class="block font-bold text-blue-800">Oportunidades (Externo)</label>
-                    <textarea name="SWOT_Oportunidades" rows="4" class="input-field bg-white" placeholder="Tendências de mercado..."></textarea>
-                </div>
-                <div class="bg-yellow-50 p-4 rounded border border-yellow-200">
-                    <label class="block font-bold text-yellow-800">Ameaças (Externo)</label>
-                    <textarea name="SWOT_Ameacas" rows="4" class="input-field bg-white" placeholder="Concorrentes, economia..."></textarea>
-                </div>
-            </div>
-
-            <!-- 6. MARKETING E COMERCIAL -->
-            <h2 class="section-title">6. Marketing e Comercial</h2>
-
-            <div class="mb-4">
-                <label class="block font-semibold mb-3">Canais de Venda Atuais:</label>
-                <div class="grid md:grid-cols-2 gap-2">
-                    <label class="checkbox-label"><input type="checkbox" name="Canais[]" value="Ponto Fisico" class="checkbox-input"> Localização Física</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Canais[]" value="Indicacao Espontanea" class="checkbox-input"> Indicação Espontânea</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Canais[]" value="Programa Indicacao" class="checkbox-input"> Programa de Indicação Ativo</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Canais[]" value="Representantes" class="checkbox-input"> Representantes Comerciais</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Canais[]" value="Outbound Frio" class="checkbox-input"> Prospecção Ativa (Frio)</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Canais[]" value="Farm Base" class="checkbox-input"> Venda para Base Atual</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Canais[]" value="Eventos" class="checkbox-input"> Eventos e Feiras</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Canais[]" value="SEO" class="checkbox-input"> SEO / Blog</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Canais[]" value="Ads Online" class="checkbox-input"> Mídia Paga Online</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Canais[]" value="Offline" class="checkbox-input"> Mídia Offline (TV, Rádio)</label>
-                    <label class="checkbox-label"><input type="checkbox" name="Canais[]" value="Marketplace" class="checkbox-input"> Marketplaces</label>
-                </div>
-            </div>
-
-            <div class="mb-4">
-                <label class="block font-semibold">Verba de Mídia Mensal Disponível:</label>
-                <input type="text" name="Verba_Midia" class="input-field" placeholder="R$ ...">
-            </div>
-
-            <div class="mb-4">
-                <label class="block font-semibold">Equipe de Marketing (Pessoas e Funções):</label>
-                <textarea name="Equipe_Marketing" rows="2" class="input-field"></textarea>
-            </div>
-
-            <div class="mb-4">
-                <label class="block font-semibold">Processos e Ferramentas de Marketing:</label>
-                <textarea name="Ferramentas_Marketing" rows="2" class="input-field"></textarea>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6 mb-4">
-                <div>
-                    <label class="block font-semibold">Possui Manual de Marca (MIV)?</label>
-                    <select name="Possui_MIV" class="input-field">
-                        <option value="Sim">Sim</option>
-                        <option value="Nao">Não</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block font-semibold">Restrições de Marca (Cores proibidas, etc):</label>
-                    <input type="text" name="Restricoes_Marca" class="input-field">
-                </div>
-            </div>
-
-            <div class="mb-4">
-                <label class="block font-semibold">Equipe Comercial (Estrutura e Nomes):</label>
-                <textarea name="Equipe_Comercial" rows="3" class="input-field"></textarea>
-            </div>
-
-            <div class="mb-4">
-                <label class="block font-semibold">Processos e Ferramentas do Comercial (CRM, Rotinas):</label>
-                <textarea name="Processos_Comercial" rows="3" class="input-field"></textarea>
-            </div>
-
-            <!-- 7. OBJETIVOS E ANEXOS -->
-            <h2 class="section-title">7. Finalização</h2>
-
-            <div class="mb-6">
-                <label class="block font-semibold">Qual o principal objetivo com a V4 Company?</label>
-                <textarea name="Objetivo_V4" required rows="3" class="input-field"></textarea>
-            </div>
+            <h2 class="section-title">5. Marketing</h2>
+            <div class="mb-4"><label class="block font-semibold">Canais Atuais:</label><textarea name="Canais_Atuais" id="Canais_Atuais" rows="2" class="input-field"></textarea></div>
+            <div class="mb-4"><label class="block font-semibold">Verba Mídia Mensal:</label><input type="text" name="Verba_Midia" id="Verba_Midia" class="input-field"></div>
+            <div class="mb-4"><label class="block font-semibold">Processos Marketing:</label><textarea name="Processos_Marketing" id="Processos_Marketing" rows="2" class="input-field"></textarea></div>
+            <div class="mb-4"><label class="block font-semibold">Objetivo Principal:</label><textarea name="Objetivo_V4" id="Objetivo_V4" required rows="3" class="input-field"></textarea></div>
 
             <div class="mb-6 bg-gray-50 p-4 border border-dashed border-gray-400 rounded">
-                <label class="block font-semibold mb-2">Anexar Arquivos (Apresentação, Media Kit, Logo):</label>
-                <input type="file" name="Anexo" class="block w-full text-sm text-gray-500
-                  file:mr-4 file:py-2 file:px-4
-                  file:rounded-full file:border-0
-                  file:text-sm file:font-semibold
-                  file:bg-v4red file:text-white
-                  file:cursor-pointer hover:file:bg-red-700
-                ">
-                <p class="text-xs text-gray-500 mt-2">* Limite de tamanho de anexo gerenciado pelo servidor de e-mail.</p>
+                <label class="block font-semibold mb-2">Anexar Arquivos:</label>
+                <input type="file" name="Anexo" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-v4red file:text-white file:cursor-pointer hover:file:bg-red-700">
             </div>
 
-            <div class="mb-8">
-                <label class="block font-semibold">Sugestão de data/hora para o Kick-off:</label>
-                <input type="text" name="Sugestao_Data" class="input-field" placeholder="Ex: Próxima terça à tarde">
-            </div>
-
-            <!-- Botão Enviar -->
             <div class="text-center">
                 <button type="submit" class="bg-v4red hover:bg-red-800 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg transform transition hover:scale-105 duration-200">
                     ENVIAR INFORMAÇÕES
                 </button>
-                <p class="mt-4 text-sm text-gray-500">Ao clicar, os dados serão enviados para ohebertgustavo@gmail.com</p>
             </div>
-
         </form>
     </main>
 
-    <footer class="bg-black text-white text-center py-8 mt-12">
-        <p>&copy; 2025 V4 Company - Todos os direitos reservados.</p>
-    </footer>
+    <!-- SCRIPT DE INTEGRAÇÃO (O Segredo) -->
+    <script>
+        document.getElementById('v4Form').addEventListener('submit', function(e) {
+            // Não usamos e.preventDefault() porque queremos que o formsubmit.co continue enviando o email.
+            // Apenas capturamos os dados antes de ir.
 
+            // 1. Pegar dados do form
+            const nome = document.getElementById('Nome_Empresa')?.value || "Nova Empresa";
+            const envolvidos = document.getElementById('Envolvidos')?.value;
+            const site = document.getElementById('Site_Redes')?.value;
+            const objetivo = document.getElementById('Objetivo_V4')?.value;
+
+            // 2. Criar objeto Lead formatado para o React
+            const newLead = {
+                id: Date.now(), // ID único baseado na hora
+                title: nome,
+                contact: envolvidos ? envolvidos.split('-')[0] : "Contato não informado",
+                status: 'pre-kickoff',
+                data: {
+                    // Mapeamento dos campos HTML para o Formato do CRM
+                    pre_nome: nome,
+                    pre_envolvidos: envolvidos,
+                    pre_site_social: site,
+                    pre_historico: document.getElementById('Historico')?.value,
+                    pre_missao: document.getElementById('Missao')?.value,
+                    pre_visao: document.getElementById('Visao')?.value,
+                    pre_valores: document.getElementById('Valores')?.value,
+                    pre_modelo_negocio: document.getElementById('Modelo_Negocio')?.value,
+                    pre_faturamento_detalhado: document.getElementById('Faturamento_Mes_a_Mes')?.value,
+                    pre_ticket_medio: document.getElementById('Ticket_Medio')?.value,
+                    pre_custo_variavel: document.getElementById('Custo_Variavel')?.value,
+                    pre_mix_produtos: document.getElementById('Mix_Produtos')?.value,
+                    pre_publico_alvo: document.getElementById('Persona')?.value,
+                    pre_promessa: document.getElementById('Promessa')?.value,
+                    pre_necessidades_medos: document.getElementById('Dores_Cliente')?.value,
+                    pre_concorrentes: document.getElementById('Concorrentes')?.value,
+                    pre_objecoes: document.getElementById('Objecoes')?.value,
+                    pre_swot_s: document.getElementById('SWOT_Forcas')?.value,
+                    pre_swot_w: document.getElementById('SWOT_Fraquezas')?.value,
+                    pre_swot_o: document.getElementById('SWOT_Oportunidades')?.value,
+                    pre_swot_t: document.getElementById('SWOT_Ameacas')?.value,
+                    pre_canais_atuais: document.getElementById('Canais_Atuais')?.value,
+                    pre_verba_midia: document.getElementById('Verba_Midia')?.value,
+                    pre_processos_mkt: document.getElementById('Processos_Marketing')?.value,
+                    pre_objetivo: objetivo,
+                    // Campos vazios para o resto
+                    kickoff: {}, bmc: {}, sexy: {}, market: {}, swot: {}, audit: {}
+                }
+            };
+
+            // 3. Salvar no Navegador (LocalStorage)
+            const currentLeads = JSON.parse(localStorage.getItem('v4_crm_leads') || '[]');
+            currentLeads.push(newLead);
+            localStorage.setItem('v4_crm_leads', JSON.stringify(currentLeads));
+            
+            console.log("Lead salvo para integração!");
+            // O formulário segue o envio normal para o FormSubmit agora...
+        });
+    </script>
 </body>
 </html>
