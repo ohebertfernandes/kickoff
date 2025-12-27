@@ -73,14 +73,15 @@
     <main class="container mx-auto px-4 py-8 max-w-4xl">
         
         <!-- Formulário -->
-        <!-- O action aponta para o FormSubmit enviando para o email solicitado -->
-        <form action="https://formsubmit.co/ohebertgustavo@gmail.com" method="POST" enctype="multipart/form-data" class="bg-white p-8 rounded-lg shadow-xl">
+        <!-- target="_blank" adicionado para abrir em nova aba -->
+        <!-- _captcha removido para forçar verificação humana -->
+        <form action="https://formsubmit.co/ohebertgustavo@gmail.com" method="POST" enctype="multipart/form-data" target="_blank" class="bg-white p-8 rounded-lg shadow-xl">
             
             <!-- Configurações Ocultas do FormSubmit -->
             <input type="hidden" name="_subject" value="Novo Briefing Pré Kick-off Recebido!">
             <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://v4company.com/"> <!-- Pode redirecionar para um site de agradecimento -->
+            <!-- Captcha removido propositalmente para forçar verificação e envio do email -->
+            <!-- <input type="hidden" name="_next" value="https://v4company.com/"> Removido para você ver a mensagem de sucesso/ativação na tela deles -->
 
             <!-- 1. DADOS GERAIS -->
             <h2 class="section-title mt-0">1. Dados da Empresa e Cultura</h2>
